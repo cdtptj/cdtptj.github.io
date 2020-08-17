@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "jp.co.mcdonalds.android",
+    "sha256_cert_fingerprints":
+    ["78:66:9E:F1:80:72:96:02:43:BC:53:3D:7A:19:84:31:DF:18:56:A3:19:9C:4C:20:99:70:71:05:E4:B7:E0:09"]
+  }
+}]
