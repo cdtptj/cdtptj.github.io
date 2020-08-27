@@ -40,6 +40,7 @@
             border: 1px solid #ccc;
             padding-left: 10px;
         }
+
         .resWrapper {
             display: none;
         }
@@ -57,13 +58,13 @@
         UserPassword:<br>
         <input type="password" name="userpass" class="userpass" value="">
         <br><br>
-        <div id="loginSys">登录</div>
+        <a id="loginSys">登录</a>
     </form>
-    <div class="resWrapper">
+    <a class="resWrapper">
         <p>您的用户名是:<span class="userRes"></span></p>
         <p>您的密码是:<span class="passRes"></span></p>
-    </div>
-    
+    </a>
+
     <script>
         $(function () {
             $("#loginSys").click(function () {
@@ -76,7 +77,6 @@
                     alert("密码不能为空!");
                     return;
                 } else {
-                    //TODO 请求登录接口
                     setTimeout(() => {
                         alert("登录成功");
                         $(".resWrapper").show();
@@ -91,7 +91,8 @@
     </script>
     <p><span class="s1">Test Video</span></p>
 
-    <iframe width="100%" height="450" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <p><span class="s1">Test DeepLink</span></p>
 
@@ -102,7 +103,8 @@
         </span><br><br></p>
 
     <p class="p1" spellcheck="true"><span><a href="mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100
-            " target="_blank" data-token-index="0"> mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100 </a></span><br><br></p>
+            " target="_blank" data-token-index="0"> mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ
+                バリューランチ(セット)&price=100 </a></span><br><br></p>
 
     <p><span class="s1">Test universallink</span></p>
 
