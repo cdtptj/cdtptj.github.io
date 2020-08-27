@@ -1,42 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.1">
-  <style type="text/css">
-    p.p1 {
-      margin: 0.0px 0.0px 0.0px 0.0px;
-      line-height: 30.0px;
-      font: 30.0px Monaco;
-      color: #c1c1c1;
-      -webkit-text-stroke: #c1c1c1
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>表单测试</title> -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+        p.p1 {
+            margin: 0.0px 0.0px 0.0px 0.0px;
+            line-height: 30.0px;
+            font: 20.0px Monaco;
+            color: #c1c1c1;
+            -webkit-text-stroke: #c1c1c1
+        }
 
-    p.p2 {
-      margin: 0.0px 0.0px 0.0px 0.0px;
-      line-height: 30.0px;
-      font: 30.0px Monaco;
-      color: #c1c1c1;
-      -webkit-text-stroke: #c1c1c1;
-      min-height: 16.0px
-    }
+        p.p2 {
+            margin: 0.0px 0.0px 0.0px 0.0px;
+            line-height: 30.0px;
+            font: 20.0px Monaco;
+            color: #c1c1c1;
+            -webkit-text-stroke: #c1c1c1;
+            min-height: 16.0px
+        }
 
-    span.s1 {
-      font-kerning: none
-    }
-  </style>
+        span.s1 {
+            font-kerning: none;
+            font: 30.0px Monaco;
+        }
+    </style>
 </head>
 
 <body>
 
-<p>Video</p>
+    <p><span class="s1">Test From</span></p>
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <form action="http://10.10.16.52:8002/api/microapp/MicroApp/save" method="post" id="formType1">
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p>如果您点击提交，表单数据会被发送到名为 demo_form.asp 的页面。</p>
+
+
+    <form id="formType2">
+        First name:<br>
+        <input type="text" name="username" class="username" value="">
+        <br>
+        Last name:<br>
+        <input type="password" name="userpass" class="userpass" value="">
+        <br><br>
+        <button id="loginSys">登录</button>
+    </form>
+    <p>如果您点击提交，通过获取参数然后请求接口。</p>
+
+    <script>
+        $(function () {
+            $("#loginSys").click(function () {
+                // var formType2 = $('#formType1').serialize();
+                var username = $.trim($(".username").val());
+                var userpass = $.trim($(".userpass").val());
+                if (!username) {
+                    console.log("用户名不能为空!");
+                    return;
+                } else if (!userpass) {
+                    console.log("密码不能为空!");
+                    return;
+                } else {
+                    //TODO 请求登录接口
+                }
+
+            })
+
+        })
+
+    </script>
+
+    <p><span class="s1">Test Video</span></p>
+
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p><span class="s1">Test DeepLink</span></p>
+
+    <p class="p1"><span class="s1"><a href="mcdonaldsjp://menu">open menu</a>
+        </span><br><br></p>
+
+    <p class="p1"><span class="s1"><a href="mcdonaldsjp://coupons?cat=kodo">open KODO</a>
+        </span><br><br></p>
+
+    <p class="p2" spellcheck="true"><span class="s1"><a href="mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100
+            " target="_blank" data-token-index="0"> order </a></span><br><br></p>
+
+    <p><span class="s1">Test universallink</span></p>
+
+    <p class="p2" spellcheck="true"><span class="s1"><a href="https://appstore-data.oss-cn-hangzhou.aliyuncs.com/order/"
+                target="_blank" data-token-index="0">open store finder</a></span><br><br></p>
 
 </body>
 
