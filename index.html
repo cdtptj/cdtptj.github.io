@@ -13,24 +13,35 @@
     <style type="text/css">
         p.p1 {
             margin: 0.0px 0.0px 0.0px 0.0px;
-            line-height: 30.0px;
+            line-height: 20.0px;
             font: 20.0px Monaco;
             color: #c1c1c1;
             -webkit-text-stroke: #c1c1c1
         }
 
-        p.p2 {
-            margin: 0.0px 0.0px 0.0px 0.0px;
-            line-height: 30.0px;
-            font: 20.0px Monaco;
-            color: #c1c1c1;
-            -webkit-text-stroke: #c1c1c1;
-            min-height: 16.0px
-        }
-
         span.s1 {
             font-kerning: none;
             font: 30.0px Monaco;
+        }
+
+        #loginSys {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        input {
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ccc;
+            padding-left: 10px;
+        }
+        .resWrapper {
+            display: none;
         }
     </style>
 </head>
@@ -39,70 +50,64 @@
 
     <p><span class="s1">Test From</span></p>
 
-    <form action="http://10.10.16.52:8002/api/microapp/MicroApp/save" method="post" id="formType1">
-        First name:<br>
-        <input type="text" name="firstname" value="Mickey">
-        <br>
-        Last name:<br>
-        <input type="text" name="lastname" value="Mouse">
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-    <p>如果您点击提交，表单数据会被发送到名为 demo_form.asp 的页面。</p>
-
-
-    <form id="formType2">
-        First name:<br>
+    <form id="userform">
+        UserName:<br>
         <input type="text" name="username" class="username" value="">
         <br>
-        Last name:<br>
+        UserPassword:<br>
         <input type="password" name="userpass" class="userpass" value="">
         <br><br>
-        <button id="loginSys">登录</button>
+        <div id="loginSys">登录</div>
     </form>
-    <p>如果您点击提交，通过获取参数然后请求接口。</p>
-
+    <div class="resWrapper">
+        <p>您的用户名是:<span class="userRes"></span></p>
+        <p>您的密码是:<span class="passRes"></span></p>
+    </div>
+    
     <script>
         $(function () {
             $("#loginSys").click(function () {
-                // var formType2 = $('#formType1').serialize();
                 var username = $.trim($(".username").val());
                 var userpass = $.trim($(".userpass").val());
                 if (!username) {
-                    console.log("用户名不能为空!");
-                    return;
+                    alert("用户名不能为空!");
+                    return false;
                 } else if (!userpass) {
-                    console.log("密码不能为空!");
+                    alert("密码不能为空!");
                     return;
                 } else {
                     //TODO 请求登录接口
+                    setTimeout(() => {
+                        alert("登录成功");
+                        $(".resWrapper").show();
+                        $(".userRes").html(username);
+                        $(".passRes").html(userpass);
+                    }, 500);
                 }
 
             })
 
         })
-
     </script>
-
     <p><span class="s1">Test Video</span></p>
 
-    <iframe width="1280" height="720" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0"
+    <iframe width="500" height="250" src="https://www.youtube.com/embed/DMfFnnrJ7xA" frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <p><span class="s1">Test DeepLink</span></p>
 
-    <p class="p1"><span class="s1"><a href="mcdonaldsjp://menu">open menu</a>
+    <p class="p1"><span><a href="mcdonaldsjp://menu">mcdonaldsjp://menu</a>
         </span><br><br></p>
 
-    <p class="p1"><span class="s1"><a href="mcdonaldsjp://coupons?cat=kodo">open KODO</a>
+    <p class="p1"><span><a href="mcdonaldsjp://coupons?cat=kodo">mcdonaldsjp://menu</a>
         </span><br><br></p>
 
-    <p class="p2" spellcheck="true"><span class="s1"><a href="mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100
-            " target="_blank" data-token-index="0"> order </a></span><br><br></p>
+    <p class="p1" spellcheck="true"><span><a href="mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100
+            " target="_blank" data-token-index="0"> mcdonaldsjp://order?productCode=3120&name=グラン ベーコンチーズ バリューランチ(セット)&price=100 </a></span><br><br></p>
 
     <p><span class="s1">Test universallink</span></p>
 
-    <p class="p2" spellcheck="true"><span class="s1"><a href="https://appstore-data.oss-cn-hangzhou.aliyuncs.com/order/"
+    <p class="p1" spellcheck="true"><span><a href="https://appstore-data.oss-cn-hangzhou.aliyuncs.com/order/"
                 target="_blank" data-token-index="0">open store finder</a></span><br><br></p>
 
 </body>
